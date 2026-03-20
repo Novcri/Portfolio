@@ -20,10 +20,10 @@ app.get('/projects', (c) => {
   return c.json([
     {
       id: 1,
-      title: 'Awesome Portfolio',
-      description: 'The personal portfolio website you are looking at right now.',
-      tech: ['React', 'Hono', 'Vite', 'Cloudflare'],
-      url: '#'
+      title: 'ポートフォリオ',
+      description: 'モダンな技術スタックを用いた、高パフォーマンスかつ美しいポートフォリオサイト',
+      tech: ['React', 'Hono', 'Tailwind', 'Vite', 'Cloudflare'],
+      url: 'https://github.com/Novcri/Portfolio'
     },
     {
       id: 2,
