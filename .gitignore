@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 # Cloudflare settings with sensitive IDs
+.wrangler
 wrangler.toml
