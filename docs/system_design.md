@@ -11,7 +11,9 @@
   - Framer Motion（高度な UI アニメーション）
 - **バックエンド (API / BFF):**
   - Hono.js
-  - Cloudflare Pages Functions (`functions/api/[[route]].ts`) としてエクスポートされ、フロントエンドからのリクエストを処理。
+  - Cloudflare Pages Functions (`functions/api/[[route]].ts`) 
+- **データベース:**
+  - Cloudflare D1 (サーバーレス SQLite DB)
 - **デプロイ基盤:**
   - Cloudflare Pages (静的ホスティング + サーバーレスAPI)
   - `wrangler.toml` および `npm run build` によってコマンドラインから直接デプロイ可能。
@@ -20,8 +22,9 @@
 ```text
 Portfolio/
 ├── src/                      # フロントエンドのソースコード群
-│   ├── components/           # UIコンポーネント (Hero, About, Projects, Contact, NewsSection etc.)
+│   ├── components/           # UIコンポーネント
 │   ├── pages/                # ページコンポーネント (Home, NewsList, NewsDetail)
+│   │   └── admin/            # 管理画面用ページ (AdminLayout, NewsAdmin, NewsEdit, Login)
 │   ├── types/                # TypeScript型定義 (News etc.)
 │   ├── App.tsx               # アプリケーションのルーティングレイアウト
 │   ├── index.css             # グローバルスタイル (Tailwindインポートを含む)
