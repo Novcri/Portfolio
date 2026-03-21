@@ -6,6 +6,7 @@
 ## 2. システムアーキテクチャ
 - **フロントエンド:**
   - React 19 (TypeScript) + Vite
+  - React Router (react-router-dom) （複数ページのルーティング）
   - Tailwind CSS v4（スタイリング全般）
   - Framer Motion（高度な UI アニメーション）
 - **バックエンド (API / BFF):**
@@ -19,10 +20,12 @@
 ```text
 Portfolio/
 ├── src/                      # フロントエンドのソースコード群
-│   ├── components/           # UIコンポーネント (Hero, About, Projects, Contact)
-│   ├── App.tsx               # アプリケーションのエントリー・ルーティング
+│   ├── components/           # UIコンポーネント (Hero, About, Projects, Contact, NewsSection etc.)
+│   ├── pages/                # ページコンポーネント (Home, NewsList, NewsDetail)
+│   ├── types/                # TypeScript型定義 (News etc.)
+│   ├── App.tsx               # アプリケーションのルーティングレイアウト
 │   ├── index.css             # グローバルスタイル (Tailwindインポートを含む)
-│   └── main.tsx              # Reactの初期化
+│   └── main.tsx              # Reactの初期化 (BrowserRouter設定)
 ├── functions/api/            # バックエンド (Cloudflare Functions向け Hono API)
 │   └── [[route]].ts          # APIの基底ルーティングファイル
 ├── docs/                     # 本ディレクトリ。設計書や運用ルールを格納する
@@ -44,6 +47,10 @@ Portfolio/
 ベースパス: `/api`
 - `GET /api/projects`
   - 概要: ポートフォリオとして表示するプロジェクト一覧のJSON配列を返す。
+- `GET /api/news`
+  - 概要: ニュース一覧のJSON配列を返す。クエリパラメータ `?limit=N` で取得件数を制限可能。
+- `GET /api/news/:id`
+  - 概要: 特定のIDを持つニュースの詳細をJSONで返す。見つからない場合は404を返す。
 - `GET /api/settings`
   - 概要: サイトの全体設定やプロフィール情報を返す（現在はモックデータを返却。将来のCMS等への連携に備えた設計）。
 
