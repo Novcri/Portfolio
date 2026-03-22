@@ -14,7 +14,7 @@
   - Cloudflare Pages Functions (`functions/api/[[route]].ts`) 
 - **データベース:**
   - Cloudflare D1 (サーバーレス SQLite DB)
-    - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品), `users` (管理者認証用ポータル)
+    - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品: `url` と `github_url` を保持), `users` (管理者認証用ポータル)
 - **デプロイ基盤:**
   - Cloudflare Pages (静的ホスティング + サーバーレスAPI)
   - `wrangler.toml` および `npm run build` によってコマンドラインから直接デプロイ可能。

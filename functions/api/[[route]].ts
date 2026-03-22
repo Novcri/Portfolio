@@ -136,12 +136,12 @@ app.get('/admin/projects', async (c) => {
 
 app.post('/admin/projects', async (c) => {
   const body = await c.req.json();
-  const { title, description, tech, url } = body;
+  const { title, description, tech, url, github_url } = body;
   const techStr = JSON.stringify(tech);
 
   const { meta } = await c.env.DB.prepare(
-    `INSERT INTO projects (title, description, tech, url) VALUES (?, ?, ?, ?)`
-  ).bind(title, description, techStr, url).run();
+    `INSERT INTO projects (title, description, tech, url, github_url) VALUES (?, ?, ?, ?, ?)`
+  ).bind(title, description, techStr, url, github_url || '').run();
 
   return c.json({ id: meta.last_row_id, message: 'Created successfully' }, 201);
 })
@@ -149,12 +149,12 @@ app.post('/admin/projects', async (c) => {
 app.put('/admin/projects/:id', async (c) => {
   const id = c.req.param('id');
   const body = await c.req.json();
-  const { title, description, tech, url } = body;
+  const { title, description, tech, url, github_url } = body;
   const techStr = JSON.stringify(tech);
 
   await c.env.DB.prepare(
-    `UPDATE projects SET title = ?, description = ?, tech = ?, url = ? WHERE id = ?`
-  ).bind(title, description, techStr, url, id).run();
+    `UPDATE projects SET title = ?, description = ?, tech = ?, url = ?, github_url = ? WHERE id = ?`
+  ).bind(title, description, techStr, url, github_url || '', id).run();
 
   return c.json({ message: 'Updated successfully' });
 })

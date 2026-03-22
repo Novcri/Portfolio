@@ -15,6 +15,7 @@ CREATE TABLE projects (
   description TEXT NOT NULL,
   tech TEXT NOT NULL,
   url TEXT NOT NULL,
+  github_url TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -33,9 +34,9 @@ CREATE TABLE news (
 INSERT INTO users (id, username, password_hash) VALUES 
 ('admin_user_id_1', 'Novcri', 'c99207f80983268084beed87c76821e4144884b4d5612c7f3587ef0b79f294ec');
 
-INSERT INTO projects (title, description, tech, url) VALUES
-('ポートフォリオ', 'モダンな技術スタックを用いた、高パフォーマンスかつ美しいポートフォリオサイト', '["React", "Hono", "Tailwind", "Vite", "Cloudflare", "D1"]', 'https://github.com/Novcri/Portfolio'),
-('E-Commerce Platform', 'モダンなフルスタック構成で構築されたECサイトプラットフォーム。', '["Next.js", "Stripe", "Tailwind"]', '#');
+INSERT INTO projects (title, description, tech, url, github_url) VALUES
+('ポートフォリオ', 'モダンな技術スタックを用いた、高パフォーマンスかつ美しいポートフォリオサイト', '["React", "Hono", "Tailwind", "Vite", "Cloudflare", "D1"]', 'https://github.com/Novcri/Portfolio', 'https://github.com/Novcri/Portfolio'),
+('E-Commerce Platform', 'モダンなフルスタック構成で構築されたECサイトプラットフォーム。', '["Next.js", "Stripe", "Tailwind"]', '#', '');
 
 INSERT INTO news (id, title, date, category, summary, content) VALUES
 ('1', '新しいポートフォリオサイトを公開しました', '2026-03-20', 'Release', '最新の技術スタック（React 19, Hono, Cloudflare Pages）を用いて、ポートフォリオサイトをリニューアルしました。', 'これまで使用していたポートフォリオサイトから大幅に技術スタックを刷新し、React 19とTailwind CSS v4を用いたモダンなフロントエンド、およびHonoによる軽量かつ高速なバックエンドAPIを備えた新しいアーキテクチャへと移行しました。

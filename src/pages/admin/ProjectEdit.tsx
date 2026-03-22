@@ -11,7 +11,8 @@ export function ProjectEdit() {
     title: '',
     description: '',
     tech: '', // カンマ区切りで入力させ、保存時に配列化する
-    url: ''
+    url: '',
+    github_url: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -28,7 +29,8 @@ export function ProjectEdit() {
             title: data.title,
             description: data.description,
             tech: Array.isArray(data.tech) ? data.tech.join(', ') : '',
-            url: data.url
+            url: data.url,
+            github_url: data.github_url || ''
           })
         })
         .catch(err => {
@@ -65,6 +67,7 @@ export function ProjectEdit() {
           title: formData.title,
           description: formData.description,
           url: formData.url,
+          github_url: formData.github_url,
           tech: techArray
         })
       })
@@ -139,9 +142,21 @@ export function ProjectEdit() {
           <input
             type="text"
             name="url"
-            placeholder="https://github.com/..."
+            placeholder="https://..."
             required
             value={formData.url}
+            onChange={handleChange}
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">GitHub URL (optional)</label>
+          <input
+            type="text"
+            name="github_url"
+            placeholder="https://github.com/..."
+            value={formData.github_url}
             onChange={handleChange}
             className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />

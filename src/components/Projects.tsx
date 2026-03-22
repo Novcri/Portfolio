@@ -8,6 +8,7 @@ type Project = {
   description: string
   tech: string[]
   url: string
+  github_url?: string
 }
 
 export const Projects = () => {
@@ -59,12 +60,23 @@ export const Projects = () => {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="p-3 bg-brand-primary/10 rounded-lg text-brand-primary">
-                      <Github className="w-6 h-6" />
+                    <div 
+                      className={`p-3 rounded-lg ${project.github_url ? 'bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/20 transition-colors' : 'bg-slate-200 dark:bg-slate-700 text-slate-400'}`}
+                      title={!project.github_url ? "No public repository" : undefined}
+                    >
+                      {project.github_url ? (
+                        <a href={project.github_url} target="_blank" rel="noopener noreferrer" title="View Source on GitHub">
+                          <Github className="w-6 h-6" />
+                        </a>
+                      ) : (
+                        <Github className="w-6 h-6" />
+                      )}
                     </div>
-                    <a href={project.url} className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors">
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
+                    {project.url !== '#' && (
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-light transition-colors duration-300">{project.title}</h3>
                   <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed line-clamp-3 transition-colors duration-300">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Plus, Edit2, Trash2, ExternalLink } from 'lucide-react'
+import { Plus, Edit2, Trash2, ExternalLink, Github } from 'lucide-react'
 
 type Project = {
   id: number
@@ -8,6 +8,7 @@ type Project = {
   description: string
   tech: string[]
   url: string
+  github_url?: string
 }
 
 export function ProjectAdmin() {
@@ -115,6 +116,11 @@ export function ProjectAdmin() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-right space-x-3 whitespace-nowrap">
+                      {item.github_url && (
+                        <a href={item.github_url} target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors" title="View GitHub URL">
+                          <Github className="w-4 h-4 inline" />
+                        </a>
+                      )}
                       {item.url !== '#' && (
                         <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors" title="View Project URL">
                           <ExternalLink className="w-4 h-4 inline" />
