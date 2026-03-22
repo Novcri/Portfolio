@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
+import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Home } from './pages/Home'
 import { NewsList } from './pages/NewsList'
@@ -8,6 +8,8 @@ import { AdminLayout } from './pages/admin/AdminLayout'
 import { Login } from './pages/admin/Login'
 import { NewsAdmin } from './pages/admin/NewsAdmin'
 import { NewsEdit } from './pages/admin/NewsEdit'
+import { ProjectAdmin } from './pages/admin/ProjectAdmin'
+import { ProjectEdit } from './pages/admin/ProjectEdit'
 
 function App() {
   const { scrollYProgress } = useScroll()
@@ -68,9 +70,13 @@ function App() {
           
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/news" replace />} />
             <Route path="news" element={<NewsAdmin />} />
             <Route path="news/new" element={<NewsEdit />} />
             <Route path="news/edit/:id" element={<NewsEdit />} />
+            <Route path="projects" element={<ProjectAdmin />} />
+            <Route path="projects/new" element={<ProjectEdit />} />
+            <Route path="projects/edit/:id" element={<ProjectEdit />} />
           </Route>
         </Routes>
       </main>

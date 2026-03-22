@@ -14,6 +14,7 @@
   - Cloudflare Pages Functions (`functions/api/[[route]].ts`) 
 - **データベース:**
   - Cloudflare D1 (サーバーレス SQLite DB)
+    - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品), `users` (管理者認証用ポータル)
 - **デプロイ基盤:**
   - Cloudflare Pages (静的ホスティング + サーバーレスAPI)
   - `wrangler.toml` および `npm run build` によってコマンドラインから直接デプロイ可能。
@@ -56,6 +57,15 @@ Portfolio/
   - 概要: 特定のIDを持つニュースの詳細をJSONで返す。見つからない場合は404を返す。
 - `GET /api/settings`
   - 概要: サイトの全体設定やプロフィール情報を返す（現在はモックデータを返却。将来のCMS等への連携に備えた設計）。
+
+### 管理者用 API (要 Basic Auth)
+ベースパス: `/api/admin`
+- `POST /api/admin/news`, `PUT /api/admin/news/:id`, `DELETE /api/admin/news/:id`
+  - 概要: D1の `news` レコードに対する作成・更新・削除エンドポイント。
+- `GET /api/admin/projects`, `GET /api/admin/projects/:id`
+  - 概要: プロジェクトの全件取得および詳細取得（管理者向け・フルフィールド）。
+- `POST /api/admin/projects`, `PUT /api/admin/projects/:id`, `DELETE /api/admin/projects/:id`
+  - 概要: D1の `projects` レコードに対する作成・更新・削除エンドポイント。
 
 ## 6. 保守・拡張方針（AI・開発者向け重要ルール）
 今後、機能の回収や追加を実施する際は、以下のルールを遵守してください。

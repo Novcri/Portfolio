@@ -8,18 +8,30 @@ export function Login() {
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    // 簡易的なBasic認証用トークンの生成 (btoa)
+    if (!username || !password) {
+      setError('Username and password are required.')
+      return
+    }
+
     const token = btoa(`${username}:${password}`)
     
-    // 実際の運用ではここで一度APIを叩いて認証チェックを行うのがベストですが、
-    // ここでは簡易的にトークンを保存して遷移し、失敗時はAPIエラーで弾く方式にします。
-    if (username && password) {
-      localStorage.setItem('adminToken', token)
-      navigate('/admin/news')
-    } else {
-      setError('Username and password are required.')
+    try {
+      // 実際にAPIを叩いて認証チェックを行う
+      const res = await fetch('/api/admin/verify', {
+        headers: { 'Authorization': `Basic ${token}` }
+      })
+
+      if (res.ok) {
+        localStorage.setItem('adminToken', token)
+        navigate('/admin/news')
+      } else {
+        setError('Invalid username or password.')
+      }
+    } catch (err) {
+      console.error(err)
+      setError('Login failed due to a network error.')
     }
   }
 

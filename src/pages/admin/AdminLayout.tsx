@@ -1,5 +1,5 @@
 import { Outlet, Navigate, useNavigate, NavLink } from 'react-router-dom'
-import { LogOut, LayoutDashboard, Newspaper } from 'lucide-react'
+import { LogOut, LayoutDashboard, Newspaper, AppWindow } from 'lucide-react'
 
 export function AdminLayout() {
   const token = localStorage.getItem('adminToken')
@@ -35,6 +35,19 @@ export function AdminLayout() {
           >
             <Newspaper className="w-5 h-5" />
             News Management
+          </NavLink>
+          <NavLink 
+            to="/admin/projects" 
+            className={({ isActive }) => 
+              `flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition-colors ${
+                isActive 
+                  ? 'bg-brand-primary/10 text-brand-primary' 
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`
+            }
+          >
+            <AppWindow className="w-5 h-5" />
+            Projects Management
           </NavLink>
         </nav>
         <button
