@@ -79,16 +79,16 @@ export function NewsEdit() {
   return (
     <div className="max-w-3xl">
       <div className="flex items-center gap-4 mb-8">
-        <Link to="/admin/news" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-full">
+        <Link to="/admin/news" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
           <ArrowLeft className="w-5 h-5" />
         </Link>
-        <h1 className="text-2xl font-bold">{isEdit ? 'Edit News' : 'Create News'}</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">{isEdit ? 'Edit News' : 'Create News'}</h1>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-800 rounded-xl p-6 md:p-8 shadow-xl space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 md:p-8 shadow-sm dark:shadow-xl space-y-6 transition-colors duration-300">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-400">Date</label>
+            <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Date</label>
             <input
               type="date"
               name="date"
@@ -96,17 +96,17 @@ export function NewsEdit() {
               title="Publish Date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-400">Category</label>
+            <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Category</label>
             <select
               name="category"
               title="Category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
             >
               <option value="Update">Update</option>
               <option value="Release">Release</option>
@@ -117,7 +117,7 @@ export function NewsEdit() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Title</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Title</label>
           <input
             type="text"
             name="title"
@@ -125,12 +125,12 @@ export function NewsEdit() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Summary (Short)</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Summary (Short)</label>
           <textarea
             name="summary"
             placeholder="A short description for the lists..."
@@ -138,12 +138,12 @@ export function NewsEdit() {
             rows={2}
             value={formData.summary}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary resize-none"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary resize-none transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Content (Markdown/Text)</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Content (Markdown/Text)</label>
           <textarea
             name="content"
             placeholder="Full article content here..."
@@ -151,7 +151,7 @@ export function NewsEdit() {
             rows={10}
             value={formData.content}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />
         </div>
 

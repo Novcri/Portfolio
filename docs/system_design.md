@@ -38,7 +38,7 @@ Portfolio/
 ```
 
 ## 4. UI/UX デザイン設計
-- **テーマ:** ダークテーマ基調（`bg-slate-900`）
+- **テーマ:** ライト/ダークテーマ両対応（`useTheme` フックにて OS 設定および `localStorage` 経由で切替。Tailwind CSS v4 の `@custom-variant dark` を利用）
 - **ビジュアルパターン:**
   - グラスモーフィズム (背景のぼかし、半透明のパネル `backdrop-blur`)
   - グラデーションテクニックによるアクセント (`bg-brand-primary` 等のオリジナルカラー)
@@ -60,6 +60,9 @@ Portfolio/
 
 ### 管理者用 API (要 Basic Auth)
 ベースパス: `/api/admin`
+- `GET /api/admin/verify`
+  - 概要: フロントエンドからのログイン試行時に、トークンの有効性を D1 データベース（SHA-256 ロック機構）と照合してチェックするエンドポイント。
+  - 備考: 標準の Basic 認証を使うとブラウザ側のネイティブログインダイアログが表示されてしまうため、`WWW-Authenticate: Basic` ヘッダーを意図的に外したカスタム認証ミドルウェアを通している。
 - `POST /api/admin/news`, `PUT /api/admin/news/:id`, `DELETE /api/admin/news/:id`
   - 概要: D1の `news` レコードに対する作成・更新・削除エンドポイント。
 - `GET /api/admin/projects`, `GET /api/admin/projects/:id`

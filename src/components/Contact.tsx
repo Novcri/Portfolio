@@ -3,7 +3,7 @@ import { Mail, MessageSquare } from 'lucide-react'
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-4 relative">
+    <section id="contact" className="py-24 px-4 relative bg-white dark:bg-transparent transition-colors duration-300">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,14 +14,14 @@ export const Contact = () => {
           <div className="inline-flex items-center justify-center p-4 bg-brand-primary/10 text-brand-primary rounded-full mb-6">
             <MessageSquare className="w-8 h-8" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h2>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white transition-colors duration-300">Let's Connect</h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 transition-colors duration-300">
             新しいプロジェクトやコラボレーションの機会を探しています。
             あなたのビジョンを形にするお手伝いをさせてください。お気軽にご連絡ください！
           </p>
           <a
             href="mailto:hello@example.com"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             <Mail className="w-5 h-5" />
             Say Hello

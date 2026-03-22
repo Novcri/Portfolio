@@ -25,7 +25,7 @@ export function NewsList() {
   }, [])
 
   return (
-    <div className="pt-24 pb-16 min-h-screen relative overflow-hidden">
+    <div className="pt-24 pb-16 min-h-screen relative overflow-hidden bg-slate-50 dark:bg-transparent transition-colors duration-300">
       {/* 背景エフェクト */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
@@ -36,14 +36,14 @@ export function NewsList() {
            transition={{ duration: 0.5 }}
            className="mb-12"
         >
-          <Link to="/" className="inline-flex items-center text-slate-400 hover:text-white transition-colors mb-6 text-sm">
+          <Link to="/" className="inline-flex items-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors mb-6 text-sm">
             <ArrowLeft className="w-4 h-4 mr-2" />
             ホームに戻る
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
             All <span className="text-brand-primary">News</span>
           </h1>
-          <p className="mt-4 text-slate-400 text-lg">
+          <p className="mt-4 text-slate-600 dark:text-slate-400 text-lg transition-colors duration-300">
             活動の履歴やアップデートの一覧です。
           </p>
         </motion.div>
@@ -60,24 +60,24 @@ export function NewsList() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 md:p-8 hover:bg-slate-800/80 transition-all group flex flex-col md:flex-row gap-6 md:items-center relative"
+                className="bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-slate-200 dark:border-slate-700/50 rounded-2xl p-6 md:p-8 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all duration-300 group flex flex-col md:flex-row gap-6 md:items-center relative shadow-sm dark:shadow-none"
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-xs font-medium px-3 py-1 bg-brand-primary/20 text-brand-primary rounded-full">
                       {news.category}
                     </span>
-                    <div className="flex items-center text-sm text-slate-400">
+                    <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 transition-colors duration-300">
                       <Calendar className="w-4 h-4 mr-1.5" />
                       {new Date(news.date).toLocaleDateString('ja-JP')}
                     </div>
                   </div>
-                  <h2 className="text-2xl font-bold mb-3 group-hover:text-brand-light transition-colors">
+                  <h2 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white group-hover:text-brand-primary dark:group-hover:text-brand-light transition-colors duration-300">
                     <Link to={`/news/${news.id}`} className="focus:outline-none before:absolute before:inset-0">
                       {news.title}
                     </Link>
                   </h2>
-                  <p className="text-slate-400 text-sm md:text-base line-clamp-2 md:line-clamp-none">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base line-clamp-2 md:line-clamp-none transition-colors duration-300">
                     {news.summary}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export function NewsList() {
             ))}
             
             {newsList.length === 0 && (
-               <p className="text-slate-400 text-center py-10">ニュースがありません。</p>
+               <p className="text-slate-600 dark:text-slate-400 text-center py-10 transition-colors duration-300">ニュースがありません。</p>
             )}
           </div>
         )}

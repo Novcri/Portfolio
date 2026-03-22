@@ -36,13 +36,13 @@ export function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8"
+        className="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-xl transition-colors duration-300"
       >
-        <h1 className="text-3xl font-bold text-center mb-8 text-white">Admin Login</h1>
+        <h1 className="text-3xl font-bold text-center mb-8 text-slate-900 dark:text-white transition-colors duration-300">Admin Login</h1>
         
         {error && (
           <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-lg text-sm mb-6 text-center">
@@ -52,22 +52,22 @@ export function Login() {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-2">Username</label>
+            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2 transition-colors duration-300">Username</label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors"
+              className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
               placeholder="admin"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-2">Password</label>
+            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-2 transition-colors duration-300">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition-colors"
+              className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
               placeholder="••••••••"
             />
           </div>

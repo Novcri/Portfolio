@@ -65,8 +65,8 @@ export function ProjectAdmin() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-           <h1 className="text-3xl font-bold">Projects Management</h1>
-           <p className="text-slate-400 mt-2">ポートフォリオのプロジェクトを一括管理します。</p>
+           <h1 className="text-3xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Projects Management</h1>
+           <p className="text-slate-600 dark:text-slate-400 mt-2 transition-colors duration-300">ポートフォリオのプロジェクトを一括管理します。</p>
         </div>
         <Link
           to="/admin/projects/new"
@@ -77,10 +77,10 @@ export function ProjectAdmin() {
         </Link>
       </div>
 
-      <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm dark:shadow-xl transition-colors duration-300">
         <div className="overflow-x-auto">
           <table className="w-full text-left">
-            <thead className="bg-slate-800/50 text-slate-400 text-sm border-b border-slate-800">
+            <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
               <tr>
                 <th className="px-6 py-4 font-medium">Title</th>
                 <th className="px-6 py-4 font-medium">Description</th>
@@ -88,24 +88,24 @@ export function ProjectAdmin() {
                 <th className="px-6 py-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/50 text-sm">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800/50 text-sm transition-colors duration-300">
               {isLoading ? (
                 <tr><td colSpan={4} className="px-6 py-10 text-center text-slate-500">Loading...</td></tr>
               ) : projects.length === 0 ? (
                 <tr><td colSpan={4} className="px-6 py-10 text-center text-slate-500">No projects found.</td></tr>
               ) : (
                 projects.map((item) => (
-                  <tr key={item.id} className="hover:bg-slate-800/30 transition-colors group">
-                    <td className="px-6 py-4 text-white font-medium max-w-sm truncate text-wrap">
+                  <tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                    <td className="px-6 py-4 text-slate-900 dark:text-white font-medium max-w-sm truncate text-wrap transition-colors duration-300">
                       {item.title}
                     </td>
-                    <td className="px-6 py-4 text-slate-400 max-w-md truncate text-wrap">
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-400 max-w-md truncate text-wrap transition-colors duration-300">
                       {item.description}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-1">
                         {item.tech.slice(0, 3).map(t => (
-                          <span key={t} className="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-xs border border-slate-700">
+                          <span key={t} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded text-xs border border-slate-200 dark:border-slate-700 transition-colors duration-300">
                             {t}
                           </span>
                         ))}
@@ -116,7 +116,7 @@ export function ProjectAdmin() {
                     </td>
                     <td className="px-6 py-4 text-right space-x-3 whitespace-nowrap">
                       {item.url !== '#' && (
-                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" title="View Project URL">
+                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors" title="View Project URL">
                           <ExternalLink className="w-4 h-4 inline" />
                         </a>
                       )}

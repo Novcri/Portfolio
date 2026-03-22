@@ -48,8 +48,8 @@ export function NewsAdmin() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-           <h1 className="text-3xl font-bold">News Management</h1>
-           <p className="text-slate-400 mt-2">D1 データベース上のニュース記事を一括管理します。</p>
+           <h1 className="text-3xl font-bold text-slate-900 dark:text-white transition-colors duration-300">News Management</h1>
+           <p className="text-slate-600 dark:text-slate-400 mt-2 transition-colors duration-300">D1 データベース上のニュース記事を一括管理します。</p>
         </div>
         <Link
           to="/admin/news/new"
@@ -60,10 +60,10 @@ export function NewsAdmin() {
         </Link>
       </div>
 
-      <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm dark:shadow-xl transition-colors duration-300">
         <div className="overflow-x-auto">
           <table className="w-full text-left">
-            <thead className="bg-slate-800/50 text-slate-400 text-sm border-b border-slate-800">
+            <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
               <tr>
                 <th className="px-6 py-4 font-medium">Date</th>
                 <th className="px-6 py-4 font-medium">Category</th>
@@ -71,27 +71,27 @@ export function NewsAdmin() {
                 <th className="px-6 py-4 font-medium text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/50 text-sm">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800/50 text-sm transition-colors duration-300">
               {isLoading ? (
                 <tr><td colSpan={4} className="px-6 py-10 text-center text-slate-500">Loading...</td></tr>
               ) : news.length === 0 ? (
                 <tr><td colSpan={4} className="px-6 py-10 text-center text-slate-500">No news found.</td></tr>
               ) : (
                 news.map((item) => (
-                  <tr key={item.id} className="hover:bg-slate-800/30 transition-colors group">
-                    <td className="px-6 py-4 whitespace-nowrap text-slate-400">
+                  <tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                    <td className="px-6 py-4 whitespace-nowrap text-slate-600 dark:text-slate-400">
                       {item.date}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700">
+                      <span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md text-xs font-medium border border-slate-200 dark:border-slate-700 transition-colors duration-300">
                         {item.category}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-white font-medium max-w-md truncate">
+                    <td className="px-6 py-4 text-slate-900 dark:text-white font-medium max-w-md truncate transition-colors duration-300">
                       {item.title}
                     </td>
                     <td className="px-6 py-4 text-right space-x-3 whitespace-nowrap">
-                      <Link to={`/news/${item.id}`} target="_blank" className="text-slate-400 hover:text-white transition-colors" title="View Public Page">
+                      <Link to={`/news/${item.id}`} target="_blank" className="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors" title="View Public Page">
                         <ExternalLink className="w-4 h-4 inline" />
                       </Link>
                       <Link to={`/admin/news/edit/${item.id}`} className="text-brand-primary hover:text-blue-400 transition-colors" title="Edit">

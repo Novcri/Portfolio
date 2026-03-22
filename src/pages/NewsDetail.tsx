@@ -38,7 +38,7 @@ export function NewsDetail() {
   }
 
   return (
-    <div className="pt-24 pb-24 min-h-screen relative">
+    <div className="pt-24 pb-24 min-h-screen relative bg-slate-50 dark:bg-transparent transition-colors duration-300">
       <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-primary/10 blur-[100px] rounded-full -z-10 pointer-events-none" />
 
       <article className="max-w-3xl mx-auto px-4">
@@ -47,7 +47,7 @@ export function NewsDetail() {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.5 }}
         >
-          <Link to="/news" className="inline-flex items-center text-slate-400 hover:text-white transition-colors mb-8 text-sm">
+          <Link to="/news" className="inline-flex items-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors mb-8 text-sm">
             <ArrowLeft className="w-4 h-4 mr-2" />
             ニュース一覧に戻る
           </Link>
@@ -57,22 +57,22 @@ export function NewsDetail() {
               <span className="text-sm font-medium px-4 py-1.5 bg-brand-primary/20 text-brand-primary rounded-full">
                 {news.category}
               </span>
-              <div className="flex items-center text-sm text-slate-400">
+              <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 transition-colors duration-300">
                 <Calendar className="w-4 h-4 mr-2" />
                 {new Date(news.date).toLocaleDateString('ja-JP')}
               </div>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6 text-slate-900 dark:text-white transition-colors duration-300">
               {news.title}
             </h1>
-            <p className="text-xl text-slate-300 font-light leading-relaxed border-l-4 border-brand-primary/50 pl-4 py-1">
+            <p className="text-xl text-slate-700 dark:text-slate-300 font-light leading-relaxed border-l-4 border-brand-primary/50 pl-4 py-1 transition-colors duration-300">
               {news.summary}
             </p>
           </header>
 
-          <div className="h-px w-full bg-slate-800 my-10" />
+          <div className="h-px w-full bg-slate-200 dark:bg-slate-800 my-10 transition-colors duration-300" />
 
-          <div className="prose prose-invert prose-lg max-w-none text-slate-300">
+          <div className="prose prose-slate dark:prose-invert prose-lg max-w-none text-slate-700 dark:text-slate-300 transition-colors duration-300">
             {news.content.split('\n\n').map((paragraph, i) => (
               <p key={i} className="mb-6 leading-relaxed">
                 {paragraph}
@@ -81,11 +81,11 @@ export function NewsDetail() {
           </div>
           
           <div className="mt-16 text-center">
-             <Link
-               to="/news"
-               className="inline-flex items-center px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full font-medium transition-all hover:-translate-y-1 shadow-lg"
-             >
-               <ArrowLeft className="w-5 h-5 mr-3" />
+               <Link
+                 to="/news"
+                 className="inline-flex items-center px-8 py-4 bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-200 rounded-full font-medium transition-all hover:-translate-y-1 shadow-md dark:shadow-lg border border-slate-200 dark:border-slate-700"
+               >
+                 <ArrowLeft className="w-5 h-5 mr-3" />
                他のニュースも見る
              </Link>
           </div>

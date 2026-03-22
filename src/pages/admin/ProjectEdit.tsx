@@ -88,15 +88,15 @@ export function ProjectEdit() {
   return (
     <div className="max-w-3xl">
       <div className="flex items-center gap-4 mb-8">
-        <Link to="/admin/projects" className="text-slate-400 hover:text-white transition-colors p-2 hover:bg-slate-800 rounded-full">
+        <Link to="/admin/projects" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
           <ArrowLeft className="w-5 h-5" />
         </Link>
-        <h1 className="text-2xl font-bold">{isEdit ? 'Edit Project' : 'Create Project'}</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">{isEdit ? 'Edit Project' : 'Create Project'}</h1>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-slate-900 border border-slate-800 rounded-xl p-6 md:p-8 shadow-xl space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 md:p-8 shadow-sm dark:shadow-xl space-y-6 transition-colors duration-300">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Project Title</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Project Title</label>
           <input
             type="text"
             name="title"
@@ -104,12 +104,12 @@ export function ProjectEdit() {
             required
             value={formData.title}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Description</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Description</label>
           <textarea
             name="description"
             placeholder="This project is about..."
@@ -117,12 +117,12 @@ export function ProjectEdit() {
             rows={4}
             value={formData.description}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary resize-none"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary resize-none transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Technologies (comma separated)</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Technologies (comma separated)</label>
           <input
             type="text"
             name="tech"
@@ -130,12 +130,12 @@ export function ProjectEdit() {
             required
             value={formData.tech}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-400">Project URL (or #)</label>
+          <label className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors duration-300">Project URL (or #)</label>
           <input
             type="text"
             name="url"
@@ -143,7 +143,7 @@ export function ProjectEdit() {
             required
             value={formData.url}
             onChange={handleChange}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-primary"
+            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-2.5 text-slate-900 dark:text-white focus:outline-none focus:border-brand-primary transition-colors duration-300"
           />
         </div>
 

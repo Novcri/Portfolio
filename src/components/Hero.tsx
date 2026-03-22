@@ -14,10 +14,10 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 backdrop-blur-md mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md mb-8 transition-colors duration-300"
         >
-          <Rocket className="w-4 h-4 text-brand-light" />
-          <span className="text-sm text-slate-300">Available for new opportunities</span>
+          <Rocket className="w-4 h-4 text-brand-primary dark:text-brand-light" />
+          <span className="text-sm text-slate-600 dark:text-slate-300">Available for new opportunities</span>
         </motion.div>
 
         <motion.h1
@@ -34,7 +34,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed transition-colors duration-300"
         >
           モダンな Web 技術を駆使し、魅力的でパフォーマンスに優れたアプリケーションを設計・開発するフルスタックエンジニアです。
         </motion.p>
@@ -48,7 +48,7 @@ export const Hero = () => {
           <a href="#projects" className="px-8 py-3 rounded-full bg-brand-primary hover:bg-brand-primary/90 text-white font-medium transition-all shadow-lg shadow-brand-primary/25">
             View Projects
           </a>
-          <a href="#contact" className="px-8 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-medium transition-all border border-slate-700">
+          <a href="#contact" className="px-8 py-3 rounded-full bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-medium transition-all border border-slate-200 dark:border-slate-700">
             Contact Me
           </a>
         </motion.div>
@@ -57,7 +57,7 @@ export const Hero = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-500 transition-colors duration-300"
       >
         <ArrowDown className="w-6 h-6" />
       </motion.div>

@@ -10,11 +10,12 @@ import { NewsAdmin } from './pages/admin/NewsAdmin'
 import { NewsEdit } from './pages/admin/NewsEdit'
 import { ProjectAdmin } from './pages/admin/ProjectAdmin'
 import { ProjectEdit } from './pages/admin/ProjectEdit'
+import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {
   const { scrollYProgress } = useScroll()
   const { pathname, hash } = useLocation()
-  
+
   const isAdmin = pathname.startsWith('/admin')
 
   const scaleX = useSpring(scrollYProgress, {
@@ -36,7 +37,7 @@ function App() {
   }, [pathname, hash]);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-brand-primary/30 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 font-sans selection:bg-brand-primary/30 selection:text-brand-primary dark:selection:text-white transition-colors duration-300">
       {!isAdmin && (
         <>
           {/* 進行度プログレスバー */}
@@ -44,18 +45,21 @@ function App() {
             className="fixed top-0 left-0 right-0 h-1 bg-brand-primary origin-left z-50 shadow-[0_0_10px_rgba(59,130,246,0.6)]"
             style={{ scaleX }}
           />
-          
+
           {/* ナビゲーション */}
-          <nav className="fixed top-0 left-0 right-0 z-40 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/50">
+          <nav className="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
             <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-              <Link to="/" className="text-xl font-bold tracking-tighter hover:text-brand-light transition-colors">
-                Portfolio<span className="text-brand-primary">.</span>
+              <Link to="/" className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white hover:text-brand-primary dark:hover:text-brand-light transition-colors">
+                Novcri's Portfolio<span className="text-brand-primary">.</span>
               </Link>
-              <div className="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-                <Link to="/#about" className="hover:text-white transition-colors">About</Link>
-                <Link to="/#projects" className="hover:text-white transition-colors">Projects</Link>
-                <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
-                <Link to="/news" className="hover:text-white transition-colors">News</Link>
+              <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <Link to="/#about" className="hover:text-brand-primary dark:hover:text-white transition-colors">About</Link>
+                <Link to="/#projects" className="hover:text-brand-primary dark:hover:text-white transition-colors">Projects</Link>
+                <Link to="/#contact" className="hover:text-brand-primary dark:hover:text-white transition-colors">Contact</Link>
+                <Link to="/news" className="hover:text-brand-primary dark:hover:text-white transition-colors">News</Link>
+                <div className="ml-4 border-l border-slate-200 dark:border-slate-700 pl-4 py-1">
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
           </nav>
@@ -67,7 +71,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/news" element={<NewsList />} />
           <Route path="/news/:id" element={<NewsDetail />} />
-          
+
           <Route path="/admin/login" element={<Login />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Navigate to="/admin/news" replace />} />
@@ -82,7 +86,7 @@ function App() {
       </main>
 
       {!isAdmin && (
-        <footer className="py-8 text-center border-t border-slate-800 text-slate-500 text-sm">
+        <footer className="py-8 text-center border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-500 text-sm transition-colors duration-300">
           <p>© {new Date().getFullYear()} Portfolio. Built with React, Tailwind & Hono.</p>
         </footer>
       )}
