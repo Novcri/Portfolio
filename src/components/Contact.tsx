@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, MessageSquare } from 'lucide-react'
+import { Mail, MessageSquare, Twitter, Github } from 'lucide-react'
 
 export const Contact = () => {
   return (
@@ -26,6 +26,17 @@ export const Contact = () => {
             <Mail className="w-5 h-5" />
             Say Hello
           </a>
+
+          <div className="flex justify-center items-center gap-6 mt-12">
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-light transition-all border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:-translate-y-1">
+              <Twitter className="w-6 h-6" />
+              <span className="sr-only">X (Twitter)</span>
+            </a>
+            <a href="https://github.com/novcri" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-light transition-all border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:-translate-y-1">
+              <Github className="w-6 h-6" />
+              <span className="sr-only">GitHub</span>
+            </a>
+          </div>
         </motion.div>
       </div>
       

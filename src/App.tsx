@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { Twitter, Github } from 'lucide-react'
 import { Home } from './pages/Home'
 import { NewsList } from './pages/NewsList'
 import { NewsDetail } from './pages/NewsDetail'
@@ -57,6 +58,14 @@ function App() {
                 <Link to="/#projects" className="hover:text-brand-primary dark:hover:text-white transition-colors">Projects</Link>
                 <Link to="/#contact" className="hover:text-brand-primary dark:hover:text-white transition-colors">Contact</Link>
                 <Link to="/news" className="hover:text-brand-primary dark:hover:text-white transition-colors">News</Link>
+                <div className="flex items-center gap-4 ml-4">
+                  <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary dark:hover:text-white transition-colors">
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                  <a href="https://github.com/novcri" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary dark:hover:text-white transition-colors">
+                    <Github className="w-5 h-5" />
+                  </a>
+                </div>
                 <div className="ml-4 border-l border-slate-200 dark:border-slate-700 pl-4 py-1">
                   <ThemeToggle />
                 </div>
@@ -87,6 +96,16 @@ function App() {
 
       {!isAdmin && (
         <footer className="py-8 text-center border-t border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-500 text-sm transition-colors duration-300">
+          <div className="flex justify-center gap-6 mb-4">
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">
+              <Twitter className="w-5 h-5" />
+              <span className="sr-only">X (Twitter)</span>
+            </a>
+            <a href="https://github.com/novcri" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">
+              <Github className="w-5 h-5" />
+              <span className="sr-only">GitHub</span>
+            </a>
+          </div>
           <p>© {new Date().getFullYear()} Portfolio. Built with React, Tailwind & Hono.</p>
         </footer>
       )}

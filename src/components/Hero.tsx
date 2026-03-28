@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
-import { Rocket, ArrowDown } from 'lucide-react'
+import { Rocket, ArrowDown, Twitter, Github } from 'lucide-react'
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-32">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl" />
         <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-brand-dark/30 rounded-full blur-3xl" />
       </div>
-      
+
       <div className="z-10 text-center px-4 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,6 +50,22 @@ export const Hero = () => {
           </a>
           <a href="#contact" className="px-8 py-3 rounded-full bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-medium transition-all border border-slate-200 dark:border-slate-700">
             Contact Me
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex items-center justify-center gap-6 mt-8"
+        >
+          <a href="https://x.com/Novcri221114" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-light transition-all border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur-md">
+            <Twitter className="w-5 h-5" />
+            <span className="sr-only">X (Twitter)</span>
+          </a>
+          <a href="https://github.com/novcri" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-light transition-all border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur-md">
+            <Github className="w-5 h-5" />
+            <span className="sr-only">GitHub</span>
           </a>
         </motion.div>
       </div>

@@ -46,6 +46,8 @@ Portfolio/
   - `framer-motion` を利用したスクロール連動のフェードイン (`whileInView`)
   - スクロール進捗バー (`useScroll`)
   - ページ読み込み時の要素ごとの段階的表示 (`delay` を使った Stagger 効果)
+- **ナビゲーションと導線:**
+  - グローバルナビゲーション、フッター、Heroセクション、Contactセクション等の要所に、外部サイト（X、GitHubなど）のソーシャルリンクを共通のアイコン (`lucide-react`) を用いて配置
 
 ## 5. API エンドポイント設計
 ベースパス: `/api`
