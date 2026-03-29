@@ -84,14 +84,14 @@ app.post('/contact', async (c) => {
         content: `📬 **新しいお問い合わせが届きました！**\n**Name:** ${name}\n**Email:** ${email}\n**Message:**\n\`\`\`\n${message}\n\`\`\``
       };
       
-      // 非同期で通知を送信（APIレスポンスをブロックさせないためawaitしない）
-      fetch(c.env.WEBHOOK_URL, {
+      // Cloudflare Workerの仕様：awaitしない非同期処理はレスポンス返却時に強制終了されるため、waitUntil()で延命する
+      const webhookPromise = fetch(c.env.WEBHOOK_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).catch(err => console.error('Webhook error:', err));
+      
+      c.executionCtx.waitUntil(webhookPromise);
     }
 
     return c.json({ success: true, message: 'Message sent successfully' }, 201);
