@@ -12,6 +12,7 @@
 - **バックエンド (API / BFF):**
   - Hono.js
   - Cloudflare Pages Functions (`functions/api/[[route]].ts`) 
+  - 外部連携: Discord / Slack Webhook (環境変数 `WEBHOOK_URL` による非同期通知)
 - **データベース:**
   - Cloudflare D1 (サーバーレス SQLite DB)
     - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品), `users` (管理者認証用ポータル), `contacts` (お問い合わせフォームの受信内容)
@@ -52,7 +53,7 @@ Portfolio/
 ## 5. API エンドポイント設計
 ベースパス: `/api`
 - `POST /api/contact`
-  - 概要: フロントエンドのお問い合わせフォームから送信されたデータ（名前、メール、メッセージ）を受け取り、D1データベースの `contacts` テーブルに保存する。
+  - 概要: フロントエンドのお問い合わせフォームから送信されたデータ（名前、メール、メッセージ）を受け取り、D1データベースの `contacts` テーブルに保存する。同時に、環境変数 `WEBHOOK_URL` が設定されている場合は Discord や Slack へ非同期で通知を送信する。
 - `GET /api/projects`
   - 概要: ポートフォリオとして表示するプロジェクト一覧のJSON配列を返す。
 - `GET /api/news`
@@ -73,6 +74,8 @@ Portfolio/
   - 概要: プロジェクトの全件取得および詳細取得（管理者向け・フルフィールド）。
 - `POST /api/admin/projects`, `PUT /api/admin/projects/:id`, `DELETE /api/admin/projects/:id`
   - 概要: D1の `projects` レコードに対する作成・更新・削除エンドポイント。
+- `GET /api/admin/contacts`, `DELETE /api/admin/contacts/:id`
+  - 概要: D1の `contacts` リストの取得と、特定の問い合わせ内容の削除を行う管理者向けエンドポイント。
 
 ## 6. 保守・拡張方針（AI・開発者向け重要ルール）
 今後、機能の回収や追加を実施する際は、以下のルールを遵守してください。

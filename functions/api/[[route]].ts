@@ -4,6 +4,7 @@ import type { D1Database } from '@cloudflare/workers-types'
 
 type Bindings = {
   DB: D1Database
+  WEBHOOK_URL?: string
 }
 
 const app = new Hono<{ Bindings: Bindings }>().basePath('/api')
@@ -76,6 +77,22 @@ app.post('/contact', async (c) => {
     await c.env.DB.prepare(
       `INSERT INTO contacts (id, name, email, message) VALUES (?, ?, ?, ?)`
     ).bind(id, name, email, message).run();
+
+    // Discord等へのWebhook通知
+    if (c.env.WEBHOOK_URL) {
+      const payload = {
+        content: `📬 **新しいお問い合わせが届きました！**\n**Name:** ${name}\n**Email:** ${email}\n**Message:**\n\`\`\`\n${message}\n\`\`\``
+      };
+      
+      // 非同期で通知を送信（APIレスポンスをブロックさせないためawaitしない）
+      fetch(c.env.WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      }).catch(err => console.error('Webhook error:', err));
+    }
 
     return c.json({ success: true, message: 'Message sent successfully' }, 201);
   } catch (error) {
