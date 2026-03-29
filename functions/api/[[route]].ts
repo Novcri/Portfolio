@@ -62,6 +62,28 @@ app.get('/news/:id', async (c) => {
   return c.json(results[0]);
 })
 
+// --- Public Contact API ---
+app.post('/contact', async (c) => {
+  try {
+    const body = await c.req.json();
+    const id = crypto.randomUUID();
+    const { name, email, message } = body;
+
+    if (!name || !email || !message) {
+      return c.json({ error: 'Missing required fields' }, 400);
+    }
+
+    await c.env.DB.prepare(
+      `INSERT INTO contacts (id, name, email, message) VALUES (?, ?, ?, ?)`
+    ).bind(id, name, email, message).run();
+
+    return c.json({ success: true, message: 'Message sent successfully' }, 201);
+  } catch (error) {
+    console.error('Contact error:', error);
+    return c.json({ error: 'Failed to send message' }, 500);
+  }
+})
+
 // --- Admin API (Protected) ---
 app.use('/admin/*', async (c, next) => {
   const authHeader = c.req.header('Authorization');
@@ -178,6 +200,17 @@ app.get('/admin/projects/:id', async (c) => {
     ...project,
     tech: JSON.parse(project.tech as string)
   });
+})
+
+app.get('/admin/contacts', async (c) => {
+  const { results } = await c.env.DB.prepare('SELECT * FROM contacts ORDER BY created_at DESC').all();
+  return c.json(results);
+})
+
+app.delete('/admin/contacts/:id', async (c) => {
+  const id = c.req.param('id');
+  await c.env.DB.prepare('DELETE FROM contacts WHERE id = ?').bind(id).run();
+  return c.json({ message: 'Deleted successfully' });
 })
 
 export const onRequest = handle(app)

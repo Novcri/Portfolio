@@ -1,5 +1,5 @@
 import { Outlet, Navigate, useNavigate, NavLink } from 'react-router-dom'
-import { LogOut, LayoutDashboard, Newspaper, AppWindow } from 'lucide-react'
+import { LogOut, LayoutDashboard, Newspaper, AppWindow, Mail } from 'lucide-react'
 import { ThemeToggle } from '../../components/ThemeToggle'
 
 export function AdminLayout() {
@@ -49,6 +49,19 @@ export function AdminLayout() {
           >
             <AppWindow className="w-5 h-5" />
             Projects Management
+          </NavLink>
+          <NavLink 
+            to="/admin/contacts" 
+            className={({ isActive }) => 
+              `flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition-colors ${
+                isActive 
+                  ? 'bg-brand-primary/10 text-brand-primary' 
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
+              }`
+            }
+          >
+            <Mail className="w-5 h-5" />
+            Contacts Management
           </NavLink>
         </nav>
         <div className="mt-auto pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">

@@ -11,6 +11,7 @@ import { NewsAdmin } from './pages/admin/NewsAdmin'
 import { NewsEdit } from './pages/admin/NewsEdit'
 import { ProjectAdmin } from './pages/admin/ProjectAdmin'
 import { ProjectEdit } from './pages/admin/ProjectEdit'
+import { ContactAdmin } from './pages/admin/ContactAdmin'
 import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
             <Route path="projects" element={<ProjectAdmin />} />
             <Route path="projects/new" element={<ProjectEdit />} />
             <Route path="projects/edit/:id" element={<ProjectEdit />} />
+            <Route path="contacts" element={<ContactAdmin />} />
           </Route>
         </Routes>
       </main>

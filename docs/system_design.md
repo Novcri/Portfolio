@@ -14,7 +14,7 @@
   - Cloudflare Pages Functions (`functions/api/[[route]].ts`) 
 - **データベース:**
   - Cloudflare D1 (サーバーレス SQLite DB)
-    - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品: `url` と `github_url` を保持), `users` (管理者認証用ポータル)
+    - 本サイトでの管理対象： `news` (ニュース記事), `projects` (ポートフォリオ作品), `users` (管理者認証用ポータル), `contacts` (お問い合わせフォームの受信内容)
 - **デプロイ基盤:**
   - Cloudflare Pages (静的ホスティング + サーバーレスAPI)
   - `wrangler.toml` および `npm run build` によってコマンドラインから直接デプロイ可能。
@@ -51,6 +51,8 @@ Portfolio/
 
 ## 5. API エンドポイント設計
 ベースパス: `/api`
+- `POST /api/contact`
+  - 概要: フロントエンドのお問い合わせフォームから送信されたデータ（名前、メール、メッセージ）を受け取り、D1データベースの `contacts` テーブルに保存する。
 - `GET /api/projects`
   - 概要: ポートフォリオとして表示するプロジェクト一覧のJSON配列を返す。
 - `GET /api/news`
