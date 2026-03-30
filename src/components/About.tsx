@@ -23,14 +23,14 @@ export const About = () => {
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white transition-colors duration-300">About Me</h2>
             <div className="w-20 h-1 bg-brand-primary rounded-full mb-8" />
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed transition-colors duration-300">
-              私はモダンな Web アプリケーションの構築を専門とするエンジニアです。
-              ユーザーエクスプレリエンスを最重視し、直感的で使いやすいインターフェースと、
+              私はモダンな Web アプリケーションの構築を専門とするエンジニアです。<br />
+              ユーザーエクスプレリエンスを最重視し、直感的で使いやすいインターフェースと、<br />
               堅牢なバックエンドシステムを両立させることを目標にしています。
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
-              現在は React と TypeScript エコシステムを中心に、Cloudflare などの
-              エッジコンピューティング技術を活用した高速な体験の提供に注力しています。
-              また、SpringBootを活用したバックエンド開発も行っています。
+              現在は React と TypeScript エコシステムを中心に、Cloudflare などの<br />
+              エッジコンピューティング技術を活用した高速な体験の提供に注力しています。<br />
+              また、SpringBootを活用したバックエンド開発も行っています。<br />
               最近では、AntigravityなどのAIを活用したアプリケーション開発にも取り組んでいます。
             </p>
           </motion.div>

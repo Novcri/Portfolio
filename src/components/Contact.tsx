@@ -51,7 +51,7 @@ export const Contact = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white transition-colors duration-300">Let's Connect</h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 transition-colors duration-300">
-            新しいプロジェクトやコラボレーション、歓迎します。
+            新しいプロジェクトやコラボレーション、歓迎します。<br />
             なんでもお気軽にご用件をお伝えください。
           </p>
 

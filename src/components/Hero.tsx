@@ -36,7 +36,8 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed transition-colors duration-300"
         >
-          モダンな Web 技術を駆使し、魅力的でパフォーマンスに優れた、アプリケーションを設計・開発するエンジニアです。
+          モダンな Web 技術を駆使し、魅力的でパフォーマンスに優れた<br />
+          アプリケーションを設計・開発するエンジニアです。
         </motion.p>
 
         <motion.div
