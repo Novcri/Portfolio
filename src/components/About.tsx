@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import { Code2, Layout, Database, Smartphone } from 'lucide-react'
+import { Code2, Layout, Database, Bot } from 'lucide-react'
 
 export const About = () => {
   const skills = [
-    { icon: <Layout className="w-6 h-6" />, title: 'Frontend', desc: 'React, Tailwind CSS, Framer Motionを用いた魅力的なUI構築' },
-    { icon: <Database className="w-6 h-6" />, title: 'Backend', desc: 'Node.js, Hono.js を活用した高速でスケーラブルな API 開発' },
+    { icon: <Layout className="w-6 h-6" />, title: 'Frontend', desc: 'React, Tailwind CSSを用いた魅力的なUI構築' },
+    { icon: <Database className="w-6 h-6" />, title: 'Backend', desc: 'Node.js, Hono.js, SpringBootを活用した高速でスケーラブルな API 開発' },
     { icon: <Code2 className="w-6 h-6" />, title: 'Architecture', desc: 'TypeScript と Cloudflare を活用した堅牢でモダンなインフラ設計' },
-    { icon: <Smartphone className="w-6 h-6" />, title: 'Responsive', desc: 'あらゆるデバイスで最適に動作するモバイルファーストなデザイン' },
+    { icon: <Bot className="w-6 h-6" />, title: 'AI', desc: 'AIを活用したアプリケーション開発' },
   ]
 
   return (
@@ -24,12 +24,14 @@ export const About = () => {
             <div className="w-20 h-1 bg-brand-primary rounded-full mb-8" />
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed transition-colors duration-300">
               私はモダンな Web アプリケーションの構築を専門とするエンジニアです。
-              ユーザーエクスプレリエンスを最重視し、美しく直感的なインターフェースと、
+              ユーザーエクスプレリエンスを最重視し、直感的で使いやすいインターフェースと、
               堅牢なバックエンドシステムを両立させることを目標にしています。
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
               現在は React と TypeScript エコシステムを中心に、Cloudflare などの
               エッジコンピューティング技術を活用した高速な体験の提供に注力しています。
+              また、SpringBootを活用したバックエンド開発も行っています。
+              最近では、AntigravityなどのAIを活用したアプリケーション開発にも取り組んでいます。
             </p>
           </motion.div>
 

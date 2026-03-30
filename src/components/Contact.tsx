@@ -51,12 +51,12 @@ export const Contact = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white transition-colors duration-300">Let's Connect</h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 transition-colors duration-300">
-            新しいプロジェクトやコラボレーションの機会を探しています。
-            右記のフォームから、お気軽にご用件をお伝えください。
+            新しいプロジェクトやコラボレーション、歓迎します。
+            なんでもお気軽にご用件をお伝えください。
           </p>
 
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mb-12 bg-white dark:bg-slate-900/50 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm text-left relative overflow-hidden">
-            
+
             {status === 'success' && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -67,7 +67,7 @@ export const Contact = () => {
                   <CheckCircle2 className="w-16 h-16 mx-auto" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">送信完了！</h3>
-                <p className="text-slate-600 dark:text-slate-400">メッセージを受け付けました。<br />後ほど返信させていただきます。</p>
+                <p className="text-slate-600 dark:text-slate-400">メッセージを受け付けました。<br />内容を吟味した後、返信させていただきます。</p>
               </motion.div>
             )}
 
@@ -154,7 +154,7 @@ export const Contact = () => {
           </div>
         </motion.div>
       </div>
-      
+
       <div className="absolute inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div className="absolute bottom-[-20%] left-[50%] -translate-x-1/2 w-3/4 h-[500px] bg-brand-primary/10 rounded-full blur-[120px]" />
       </div>
