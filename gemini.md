@@ -19,6 +19,11 @@
 - `/src`: React フロントエンドコンポーネント群。
 - `/functions/api`: Hono ベースラインAPI。Cloudflare Pages の Functions 規則に従う。
 - `wrangler.toml`: デプロイ用構成。
+- `Dockerfile.dev` / `compose.yaml`: ローカル共通開発環境 (Docker) 用構成。
+
+## セキュリティ対策要件
+- 入力フォーム等には DoS攻撃（巨大ペイロード）や Markdown インジェクションを防ぐためのバリデーションと無害化を適切に実装すること。
+- D1への問い合わせは必ずプレースホルダ (`.bind()`) を用いること。
 
 ## 今後の拡張方針
 - バックエンドの API (`/api/projects` など) に対して CMS (Contentful や Sanity など) または Cloudflare D1 との連携を追加することで自己更新可能なポートフォリオとして拡張可能。

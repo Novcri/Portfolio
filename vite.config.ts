@@ -6,6 +6,9 @@ import cloudflareAdapter from '@hono/vite-dev-server/cloudflare'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    host: true, // Dockerコンテナ外からアクセスできるように 0.0.0.0 をバインド
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -13,12 +16,7 @@ export default defineConfig({
       entry: 'functions/api/[[route]].ts',
       adapter: cloudflareAdapter,
       exclude: [
-        /.*\.tsx?($|\?)/,
-        /.*\.(s?css|less)($|\?)/,
-        /.*\.(svg|png)($|\?)/,
-        /^\/@.+$/,
-        /^\/src\/.+/,
-        /^\/node_modules\/.*/,
+        /^\/(?!api).*/,
       ],
     })
   ],

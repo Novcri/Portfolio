@@ -1,0 +1,16 @@
+FROM node:22-bookworm
+
+WORKDIR /app
+
+# npm install のキャッシュを効かせるため、packageファイル群を先にコピー
+COPY package*.json ./
+RUN npm install
+
+# ソースコードのコピー
+COPY . .
+
+# Viteのデフォルトポートの公開
+EXPOSE 5173
+
+# Vite開発サーバーの起動
+CMD ["npm", "run", "dev"]

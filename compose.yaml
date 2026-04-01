@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      # ホストのコード変更を即座にコンテナへ反映
+      - ./:/app
+      # 依存モジュールはコンテナ内で解決するものを使用（マウントの上書き防止）
+      - node_modules_vol:/app/node_modules
+      # Wrangler（D1）のローカルデータをコンテナ再起動後も保持
+      - wrangler_state:/app/.wrangler
+
+volumes:
+  node_modules_vol:
+  wrangler_state:
