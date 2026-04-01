@@ -74,14 +74,26 @@ app.post('/contact', async (c) => {
       return c.json({ error: 'Missing required fields' }, 400);
     }
 
+    // 文字数・長さのバリデーション (DoS対策)
+    if (name.length > 100 || email.length > 255 || message.length > 5000) {
+      return c.json({ error: 'Input too long' }, 400);
+    }
+
+    // メールアドレスの形式チェック
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return c.json({ error: 'Invalid email format' }, 400);
+    }
+
     await c.env.DB.prepare(
       `INSERT INTO contacts (id, name, email, message) VALUES (?, ?, ?, ?)`
     ).bind(id, name, email, message).run();
 
     // Discord等へのWebhook通知
     if (c.env.WEBHOOK_URL) {
+      const safeMessage = message.replace(/`/g, '´'); // バッククォートを置換してMarkdownインジェクションを防止
       const payload = {
-        content: `📬 **新しいお問い合わせが届きました！**\n**Name:** ${name}\n**Email:** ${email}\n**Message:**\n\`\`\`\n${message}\n\`\`\``
+        content: `📬 **新しいお問い合わせが届きました！**\n**Name:** ${name}\n**Email:** ${email}\n**Message:**\n\`\`\`\n${safeMessage}\n\`\`\``
       };
       
       // Cloudflare Workerの仕様：awaitしない非同期処理はレスポンス返却時に強制終了されるため、waitUntil()で延命する
