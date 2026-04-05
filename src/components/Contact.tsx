@@ -51,8 +51,8 @@ export const Contact = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white transition-colors duration-300">Let's Connect</h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 transition-colors duration-300">
-            新しいプロジェクトやコラボレーション、歓迎します。<br />
-            なんでもお気軽にご用件をお伝えください。
+            新しいプロジェクトやコラボレーション等、お気軽にご相談ください。<br />
+            また、スカウト等も歓迎しております。
           </p>
 
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mb-12 bg-white dark:bg-slate-900/50 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 backdrop-blur-sm text-left relative overflow-hidden">

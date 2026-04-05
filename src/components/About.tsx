@@ -24,8 +24,8 @@ export const About = () => {
             <div className="w-20 h-1 bg-brand-primary rounded-full mb-8" />
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed transition-colors duration-300">
               私はモダンな Web アプリケーションの構築を専門とするエンジニアです。
-              ユーザーエクスプレリエンスを最重視し、直感的で使いやすいインターフェースと、
-              堅牢なバックエンドシステムを両立させることを目標にしています。
+              ユーザーエクスペリエンス（UX）を大切にし、直感的で使いやすいインターフェースと、
+              信頼性のあるバックエンドシステムを両立させることを目標にしています。
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
               現在は React と TypeScript エコシステムを中心に、Cloudflare などの
